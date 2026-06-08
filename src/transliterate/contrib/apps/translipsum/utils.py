@@ -145,7 +145,7 @@ def split(delimiters: str, value: str, max_split: int = 0) -> list[str]:
     """
     value = re.sub(r'\s+', ' ', value)
     pattern = '|'.join(map(re.escape, delimiters))
-    return re.split(pattern, value, max_split)
+    return re.split(pattern, value, maxsplit=max_split)
 
 
 def split_sentences(f: str) -> list[str]:
