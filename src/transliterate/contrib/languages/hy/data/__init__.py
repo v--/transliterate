@@ -1,4 +1,10 @@
-from .default import *
+from .default import mapping, pre_processor_mapping, reversed_specific_mapping
+
+__all__ = (
+    'mapping',
+    'reversed_specific_mapping',
+    'pre_processor_mapping',
+)
 
 __title__ = 'transliterate.contrib.languages.hy.data'
 __author__ = 'Artur Barseghyan'
