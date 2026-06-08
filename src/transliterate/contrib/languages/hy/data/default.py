@@ -1,4 +1,3 @@
-
 __title__ = 'transliterate.contrib.languages.hy.data.default'
 __author__ = 'Artur Barseghyan'
 __copyright__ = '2013-2018 Artur Barseghyan'

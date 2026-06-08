@@ -1,3 +1,11 @@
+import sys
+from typing import Any
+
+if sys.version_info < (3, 12):
+    from typing_extensions import override
+else:
+    from typing import override
+
 from transliterate.contrib.apps.translipsum.utils import Generator
 from transliterate.utils import translit
 
@@ -11,12 +19,13 @@ __all__ = ('TranslipsumGenerator',)
 class TranslipsumGenerator(Generator):
     """Lorem ipsum generator."""
 
-    def __init__(self, language_code, reversed=False, *args, **kwargs):
+    def __init__(self, language_code: str, reversed: bool = False, *args: Any, **kwargs: Any) -> None:  # noqa: ANN401
         self._language_code = language_code
         self._reversed = reversed
         super().__init__(*args, **kwargs)
 
-    def generate_sentence(self, *args, **kwargs):
+    @override
+    def generate_sentence(self, *args: Any, **kwargs: Any) -> str:  # noqa: ANN401
         """Generate sentence."""
         value = super().generate_sentence(
             *args, **kwargs
@@ -25,7 +34,8 @@ class TranslipsumGenerator(Generator):
                         language_code=self._language_code,
                         reversed=self._reversed)
 
-    def generate_paragraph(self, *args, **kwargs):
+    @override
+    def generate_paragraph(self, *args: Any, **kwargs: Any) -> str:  # noqa: ANN401
         """Generate paragraph."""
         value = super().generate_paragraph(
             *args, **kwargs

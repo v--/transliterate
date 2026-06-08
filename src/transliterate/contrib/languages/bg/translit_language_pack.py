@@ -1,4 +1,3 @@
-
 from transliterate.base import TranslitLanguagePack, registry
 from transliterate.contrib.languages.bg import data
 

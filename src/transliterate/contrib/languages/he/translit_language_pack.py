@@ -1,4 +1,3 @@
-
 from transliterate.base import TranslitLanguagePack
 
 __title__ = 'transliterate.contrib.languages.he.translit_language_pack'

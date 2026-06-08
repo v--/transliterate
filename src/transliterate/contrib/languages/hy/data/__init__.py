@@ -1,6 +1,12 @@
-from .default import mapping, pre_processor_mapping, reversed_specific_mapping
+from .default import (
+    mapping,
+    pre_processor_mapping,
+    reversed_specific_mapping,
+    reversed_specific_pre_processor_mapping,
+)
 
 __all__ = (
+    'reversed_specific_pre_processor_mapping',
     'mapping',
     'reversed_specific_mapping',
     'pre_processor_mapping',

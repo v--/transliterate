@@ -10,7 +10,7 @@ __all__ = (
 )
 
 
-def project_dir(base):
+def project_dir(base: str | list[str] | tuple[str]) -> str:
     """Project dir."""
     return os.path.abspath(
         os.path.join(

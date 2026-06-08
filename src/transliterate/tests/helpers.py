@@ -1,4 +1,5 @@
 import logging
+from typing import Callable, Concatenate, ParamSpec, TypeVar
 
 from .defaults import LOG_INFO
 
@@ -13,23 +14,30 @@ __all__ = (
 LOGGER = logging.getLogger(__name__)
 
 
-def log_info(func):
+P = ParamSpec('P')
+T = TypeVar('T')
+R = TypeVar('R')
+
+
+def log_info(func: Callable[Concatenate[T, P], R]) -> Callable[Concatenate[T, P], R]:
     """Print some useful info."""
     if not LOG_INFO:
         return func
 
-    def inner(self, *args, **kwargs):
+    def inner(self: T, *args: P.args, **kwargs: P.kwargs) -> R:
         result = func(self, *args, **kwargs)
 
         LOGGER.debug('\n%s', func.__name__)
         LOGGER.debug('============================')
-        LOGGER.debug('""" %s """', func.__doc__.strip())
+
+        if func.__doc__:
+            LOGGER.debug('""" %s """', func.__doc__.strip())
+
         LOGGER.debug('----------------------------')
+
         if result is not None:
-            try:
-                LOGGER.debug(result)
-            except Exception:
-                LOGGER.debug(result.encode('utf8'))
+            LOGGER.debug(result)
 
         return result
+
     return inner

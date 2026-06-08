@@ -32,7 +32,7 @@ from transliterate.decorators import transliterate_function
 
 
 @transliterate_function(language_code='hy')
-def decorator_test_armenian(text):
+def decorator_test_armenian(text: str) -> str:
     return text
 
 print(decorator_test_armenian("Lorem ipsum dolor sit amet"))
@@ -43,14 +43,14 @@ from transliterate.decorators import transliterate_method
 
 class DecoratorTest:
     @transliterate_method(language_code='ru')
-    def decorator_test_russian(self, text):
+    def decorator_test_russian(self, text: str) -> str:
         return text
 
 print(DecoratorTest().decorator_test_russian("Lorem ipsum dolor sit amet"))
 
 print('\nTesting the decorator in reversed mode\n---------------------------------------')
 @transliterate_function(language_code='hy', reversed=True)
-def decorator_test_armenian_reversed(text):
+def decorator_test_armenian_reversed(text: str) -> str:
     return text
 
 print(decorator_test_armenian("Լօրեմ իպսում դoլoր սիտ ամետ"))

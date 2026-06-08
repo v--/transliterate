@@ -1,10 +1,10 @@
-
 mapping = (
     "abvgdđežzijklmnoprstćufhcčšABVGDĐEŽZIJKLMNOPRSTĆUFHCČŠ",
     "абвгдђежзијклмнопрстћуфхцчшАБВГДЂЕЖЗИЈКЛМНОПРСТЋУФХЦЧШ",
 )
 
 reversed_specific_mapping = (
+    "",
     "",
 )
 

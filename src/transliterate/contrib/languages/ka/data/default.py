@@ -1,4 +1,3 @@
-
 mapping = (
     "ABGDEVZTIKLMNOPJRSTUFQYCXHabgdevztiklmnoprsufqycxjhw",
     "აბგდევზთიკლმნოპჟრსტუფქყცხჰაბგდევზთიკლმნოპრსუფქყცხჯჰწ",

@@ -1,4 +1,3 @@
-
 mapping = (
     "abvhgdezyijklmnoprstuf'ABVHGDEZYIJKLMNOPRSTUF'",
     "абвгґдезиійклмнопрстуфьАБВГҐДЕЗИІЙКЛМНОПРСТУФЬ",

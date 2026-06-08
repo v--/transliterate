@@ -1,3 +1,5 @@
+from typing import Callable, Concatenate, ParamSpec, TypeVar
+
 from .utils import translit
 
 __title__ = 'transliterate.decorators'
@@ -10,15 +12,21 @@ __all__ = (
 )
 
 
+P = ParamSpec('P')
+
+
 class TransliterateFunction:
     """Function decorator."""
 
-    def __init__(self, language_code, reversed=False):
+    language_code: str
+    reversed: bool
+
+    def __init__(self, language_code: str, reversed: bool = False) -> None:
         self.language_code = language_code
         self.reversed = reversed
 
-    def __call__(self, func):
-        def inner(*args, **kwargs):
+    def __call__(self, func: Callable[P, str]) -> Callable[P, str]:
+        def inner(*args: P.args, **kwargs: P.kwargs) -> str:
             value = func(*args, **kwargs)
 
             return translit(value,
@@ -30,15 +38,18 @@ class TransliterateFunction:
 transliterate_function = TransliterateFunction
 
 
+T = TypeVar('T')
+
+
 class TransliterateMethod:
     """Method decorator."""
 
-    def __init__(self, language_code, reversed=False):
+    def __init__(self, language_code: str, reversed: bool = False) -> None:
         self.language_code = language_code
         self.reversed = reversed
 
-    def __call__(self, func):
-        def inner(this, *args, **kwargs):
+    def __call__(self, func: Callable[Concatenate[T, P], str]) -> Callable[Concatenate[T, P], str]:
+        def inner(this: T, *args: P.args, **kwargs: P.kwargs) -> str:
             value = func(this, *args, **kwargs)
 
             return translit(value,

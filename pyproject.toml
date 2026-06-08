@@ -5,7 +5,6 @@ description = "Bi-directional transliterator for Python"
 readme = "README.rst"
 requires-python = ">=3.10"
 license = "GPL-2.0-only OR LGPL-2.1-or-later"
-dependencies = []
 keywords = ["translit", "transliteration"]
 authors = [
   { name = "Artur Barseghyan", email = "artur.barseghyan@gmail.com" }
@@ -31,6 +30,10 @@ classifiers = [
   "Natural Language :: Russian",
   "Natural Language :: Serbian",
   "Natural Language :: Ukrainian",
+]
+
+dependencies = [
+  "typing_extensions (>=4.5.0); python_version < '3.12'"
 ]
 
 [build-system]
@@ -89,6 +92,7 @@ ignore_missing_imports = true
 
 [tool.ruff.lint]
 extend-select = [
+  "ANN",   # flake8-annotations
   "E",     # pycodestyle error
   "I",     # isort
   "PL",    # pylint
