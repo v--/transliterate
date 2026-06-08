@@ -1,12 +1,6 @@
 import random
 import re
-
-from six import PY3, text_type
-
-if not PY3:
-    from string import maketrans, punctuation, translate
-else:
-    from string import punctuation
+from string import punctuation
 
 __title__ = 'transliterate.contrib.apps.translipsum.utils'
 __author__ = 'Artur Barseghyan'
@@ -131,26 +125,13 @@ FACTORY = """
     """
 
 # Splits words
-if not PY3:
-    def split_words(f):
-        """Split words."""
-        return list(
-            set(
-                translate(
-                    f.lower(),
-                    maketrans(punctuation, ' ' * len(punctuation))
-                ).split()
-            )
+def split_words(f):
+    """Split words."""
+    return list(
+        set(
+            f.lower().translate(str.maketrans("", "", punctuation)).split()
         )
-
-else:
-    def split_words(f):
-        """Split words."""
-        return list(
-            set(
-                f.lower().translate(str.maketrans("", "", punctuation)).split()
-            )
-        )
+    )
 
 
 def split(delimiters, value, max_split=0):
@@ -187,9 +168,7 @@ class Generator:
 
     def generate_sentence(self):
         """Generate sentence."""
-        return text_type(
-            SENTENCES[random.randint(0, len(SENTENCES) - 1)] + '.'
-        )
+        return SENTENCES[random.randint(0, len(SENTENCES) - 1)] + '.'
 
     def generate_paragraph(self, num_sentences=4):
         """Generate paragraph."""

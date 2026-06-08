@@ -5,7 +5,7 @@ description = "Bi-directional transliterator for Python"
 readme = "README.rst"
 requires-python = ">=3.10"
 license = "GPL-2.0-only OR LGPL-2.1-or-later"
-dependencies = ["six (>=1.17)"]
+dependencies = []
 keywords = ["translit", "transliteration"]
 authors = [
   { name = "Artur Barseghyan", email = "artur.barseghyan@gmail.com" }

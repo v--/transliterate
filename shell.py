@@ -5,7 +5,7 @@ import sys
 
 def main():
     sys.path.insert(0, os.path.abspath('src'))
-    from IPython import start_ipython
+    from IPython import start_ipython  # noqa: PLC0415
     start_ipython(argv=[])
 
 

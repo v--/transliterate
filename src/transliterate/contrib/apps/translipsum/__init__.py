@@ -1,11 +1,5 @@
-from six import PY3
-
+from transliterate.contrib.apps.translipsum.utils import Generator
 from transliterate.utils import translit
-
-if PY3:
-    from transliterate.contrib.apps.translipsum.utils import Generator
-else:
-    from lipsum import Generator
 
 __title__ = 'transliterate.contrib.apps.translipsum.__init__'
 __author__ = 'Artur Barseghyan'

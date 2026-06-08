@@ -6,7 +6,7 @@ get rid of accented characters in Greek but leave other characters intact.
 
 >>> from foo.greekunaccented import *
 >>> from transliterate import translit
->>> print translit(u'άέήίϊΐόύϋΰώΆΈΉΊΪΌΎΫΏ', 'el2')
+>>> print(translit(u'άέήίϊΐόύϋΰώΆΈΉΊΪΌΎΫΏ', 'el2'))
 αεηιιιουυυωΑΕΗΙΙΟΥΥΩ
 """
 

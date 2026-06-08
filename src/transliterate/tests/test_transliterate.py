@@ -1,3 +1,4 @@
+# ruff: noqa: PLC0415
 
 import logging
 import unittest

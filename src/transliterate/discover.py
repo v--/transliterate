@@ -1,11 +1,5 @@
 import os
-
-from six import print_
-
-try:
-    from importlib import import_module
-except ImportError:
-    import_module = __import__
+from importlib import import_module
 
 from .conf import get_setting
 from .helpers import PROJECT_DIR
@@ -37,9 +31,9 @@ def autodiscover():
                 )
             except ImportError as err:
                 if debug:
-                    print_(err)
+                    print(err)
             except Exception as err:
                 if debug:
-                    print_(err)
+                    print(err)
         else:
             pass

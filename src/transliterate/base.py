@@ -2,8 +2,6 @@
 import re
 import unicodedata
 
-import six
-
 from .exceptions import ImproperlyConfigured, InvalidRegistryItemType
 
 __title__ = 'transliterate.base'
@@ -189,9 +187,6 @@ class TranslitLanguagePack:
         :param bool fail_silently:
         :return str:
         """
-        if not six.PY3:
-            value = unicode(value)
-
         if reversed:
             # Handling reversed specific translations (one side only).
             if self.reversed_specific_mapping:
@@ -346,13 +341,12 @@ class TranslitRegistry:
             else:
                 return False
 
-        else:
+        elif cls.language_code in self._registry:
+            return False
 
-            if cls.language_code in self._registry:
-                return False
-            else:
-                self._registry[cls.language_code] = cls
-                return True
+        else:
+            self._registry[cls.language_code] = cls
+            return True
 
     def unregister(self, cls):
         """Un-registers an item from registry.
