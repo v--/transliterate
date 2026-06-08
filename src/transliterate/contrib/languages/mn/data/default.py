@@ -32,9 +32,10 @@ pre_processor_mapping = {
     "ei": "эй",
     "Ei": "Эй",
     "EI": "ЭЙ",
-    "ii": "ий",
+    # TODO: There are two values for both "ii" and "II" in the map (see the beginning). Figure out which should remain.
+    "ii": "ий",  # noqa: F601
     "Ii": "Ий",
-    "II": "ИЙ",
+    "II": "ИЙ",  # noqa: F601
     "oi": "ой",
     "Oi": "Ой",
     "OI": "ОЙ",
