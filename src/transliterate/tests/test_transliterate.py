@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import
 
 import logging
 import unittest
@@ -16,7 +14,6 @@ from .. import (
 from ..base import TranslitLanguagePack, registry
 from ..conf import (
     get_setting,
-    reset_to_defaults_settings,
     set_setting,
 )
 from ..contrib.apps.translipsum import TranslipsumGenerator
@@ -24,11 +21,8 @@ from ..decorators import (
     transliterate_function,
     transliterate_method,
 )
-from ..discover import autodiscover
-
 from . import data
 from .helpers import log_info
-
 
 __title__ = 'transliterate.tests.test_transliterate'
 __author__ = 'Artur Barseghyan'
@@ -219,7 +213,7 @@ class TransliterateTest(unittest.TestCase):
     @log_info
     def test_13_method_decorator(self):
         """Test the method decorator from Latin to Cyrillic."""
-        class DecoratorTest(object):
+        class DecoratorTest:
             @transliterate_method(language_code='ru')
             def decorator_test_russian(self, text):
                 return text
@@ -571,7 +565,7 @@ class TransliterateTest(unittest.TestCase):
     def test_33_register_unregister(self):
         """Testing register/un-register."""
         from transliterate.contrib.languages.hy.translit_language_pack import (
-            ArmenianLanguagePack
+            ArmenianLanguagePack,
         )
 
         class A(TranslitLanguagePack):

@@ -4,7 +4,7 @@ import re
 from six import PY3, text_type
 
 if not PY3:
-    from string import translate, maketrans, punctuation
+    from string import maketrans, punctuation, translate
 else:
     from string import punctuation
 
@@ -175,7 +175,7 @@ WORDS = split_words(FACTORY)
 SENTENCES = split_sentences(FACTORY)
 
 
-class Generator(object):
+class Generator:
     """Fallback lorem ipsum generator for Python 3."""
 
     def __init__(self, *args, **kwargs):

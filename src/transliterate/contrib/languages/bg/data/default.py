@@ -1,30 +1,29 @@
-# -*- coding: utf-8 -*-
 
 mapping = (
-    u"abvgdeziyklmnoprstufhABVGDEZIYKLMNOPRSTUFH",
-    u"абвгдезийклмнопрстуфхАБВГДЕЗИЙКЛМНОПРСТУФХ",
+    "abvgdeziyklmnoprstufhABVGDEZIYKLMNOPRSTUFH",
+    "абвгдезийклмнопрстуфхАБВГДЕЗИЙКЛМНОПРСТУФХ",
 )
 
 reversed_specific_mapping = (
-    u"ьъЪ",
-    u"yaA"
+    "ьъЪ",
+    "yaA"
 )
 
 pre_processor_mapping = {
-    u"zh": u"ж",
-    u"ts": u"ц",
-    u"ch": u"ч",
-    u"sh": u"ш",
-    u"sht": u"щ",
-    u"yu": u"ю",
-    u"ya": u"я",
-    u"Zh": u"Ж",
-    u"Ts": u"Ц",
-    u"Ch": u"Ч",
-    u"Sh": u"Ш",
-    u"Sht": u"Щ",
-    u"Yu": u"Ю",
-    u"Ya": u"Я",
-    u"Q": u"Я", # Bulgarians typers often use "Q" for "Я". Example: KNQZ => КНЯЗ
-    u"q": u"Я", # Bulgarians typers often use "q" for "я". Example: pepelqshka => пепеляшка   
+    "zh": "ж",
+    "ts": "ц",
+    "ch": "ч",
+    "sh": "ш",
+    "sht": "щ",
+    "yu": "ю",
+    "ya": "я",
+    "Zh": "Ж",
+    "Ts": "Ц",
+    "Ch": "Ч",
+    "Sh": "Ш",
+    "Sht": "Щ",
+    "Yu": "Ю",
+    "Ya": "Я",
+    "Q": "Я", # Bulgarians typers often use "Q" for "Я". Example: KNQZ => КНЯЗ
+    "q": "Я", # Bulgarians typers often use "q" for "я". Example: pepelqshka => пепеляшка
 }

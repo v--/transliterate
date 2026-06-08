@@ -1,14 +1,10 @@
-# -*- coding: utf-8 -*-
 
 import re
 import unicodedata
 
 import six
 
-from .exceptions import (
-    ImproperlyConfigured,
-    InvalidRegistryItemType
-)
+from .exceptions import ImproperlyConfigured, InvalidRegistryItemType
 
 __title__ = 'transliterate.base'
 __author__ = 'Artur Barseghyan'
@@ -20,7 +16,7 @@ __all__ = (
 )
 
 
-class TranslitLanguagePack(object):
+class TranslitLanguagePack:
     """Base language pack.
 
     The attributes below shall be defined in every language pack.
@@ -127,7 +123,7 @@ class TranslitLanguagePack(object):
                 "``TranslitLanguagePack`` class."
             )
 
-        super(TranslitLanguagePack, self).__init__()
+        super().__init__()
 
         # Creating a translation table from the mapping set.
         self.translation_table = {}
@@ -262,13 +258,12 @@ class TranslitLanguagePack(object):
             else:
                 # Make strict based on the ``character_ranges`` specified.
                 pass
+        elif self.characters:
+            # Make strict based on the ``characters``.
+            value = re.sub(self._characters, '', value)
         else:
-            if self.characters:
-                # Make strict based on the ``characters``.
-                value = re.sub(self._characters, '', value)
-            else:
-                # Make strict based on the ``character_ranges`` specified.
-                pass
+            # Make strict based on the ``character_ranges`` specified.
+            pass
 
         return value
 
@@ -312,7 +307,7 @@ class TranslitLanguagePack(object):
         # TODO
 
 
-class TranslitRegistry(object):
+class TranslitRegistry:
     """Language pack registry."""
 
     def __init__(self):

@@ -12,7 +12,7 @@ __all__ = (
 )
 
 
-class TransliterateFunction(object):
+class TransliterateFunction:
     """Function decorator."""
 
     def __init__(self, language_code, reversed=False):
@@ -35,7 +35,7 @@ class TransliterateFunction(object):
 transliterate_function = TransliterateFunction
 
 
-class TransliterateMethod(object):
+class TransliterateMethod:
     """Method decorator."""
 
     def __init__(self, language_code, reversed=False):

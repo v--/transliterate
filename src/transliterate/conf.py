@@ -12,7 +12,7 @@ __all__ = (
 )
 
 
-class Settings(object):
+class Settings:
     """Settings registry."""
 
     def __init__(self):

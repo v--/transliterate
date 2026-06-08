@@ -13,7 +13,7 @@ __all__ = (
 
 try:
     PY32 = (sys.version_info[0] == 3 and sys.version_info[1] == 2)
-except Exception as err:
+except Exception:
     PY32 = False
 
 

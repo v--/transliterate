@@ -89,9 +89,13 @@ ignore_missing_imports = true
 
 [tool.ruff.lint]
 extend-select = [
-  "ANN",   # flake8-annotations
-  "UP",    # pyupgrade
-  "PL",    # pylint
   "E",     # pycodestyle error
+  "I",     # isort
+  "PL",    # pylint
+  "UP",    # pyupgrade
   "W",     # pycodestyle warning
+]
+ignore = [
+  "UP03",    # Disable string formatting warnings to avoid pointless refactoring
+  "E501",    # Ignore long lines
 ]

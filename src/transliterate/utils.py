@@ -1,7 +1,7 @@
-from collections import Counter
 import logging
 import re
 import unicodedata
+from collections import Counter
 
 from .base import registry
 from .conf import get_setting

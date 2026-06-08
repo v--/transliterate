@@ -20,11 +20,11 @@ class TranslipsumGenerator(Generator):
     def __init__(self, language_code, reversed=False, *args, **kwargs):
         self._language_code = language_code
         self._reversed = reversed
-        super(TranslipsumGenerator, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def generate_sentence(self, *args, **kwargs):
         """Generate sentence."""
-        value = super(TranslipsumGenerator, self).generate_sentence(
+        value = super().generate_sentence(
             *args, **kwargs
         )
         return translit(value,
@@ -33,7 +33,7 @@ class TranslipsumGenerator(Generator):
 
     def generate_paragraph(self, *args, **kwargs):
         """Generate paragraph."""
-        value = super(TranslipsumGenerator, self).generate_paragraph(
+        value = super().generate_paragraph(
             *args, **kwargs
         )
         return translit(value,

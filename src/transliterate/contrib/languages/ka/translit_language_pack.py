@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 from transliterate.base import TranslitLanguagePack, registry
 from transliterate.contrib.languages.ka import data
@@ -33,7 +32,7 @@ class GeorgianLanguagePack(TranslitLanguagePack):
         value = value.lower()
 
         # Continue the standard way
-        return super(GeorgianLanguagePack, self).translit(
+        return super().translit(
             value=value,
             reversed=reversed,
             strict=strict,
