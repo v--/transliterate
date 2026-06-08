@@ -19,13 +19,13 @@ T = TypeVar('T')
 R = TypeVar('R')
 
 
-def log_info(func: Callable[Concatenate[T, P], R]) -> Callable[Concatenate[T, P], R]:
+def log_info(func: Callable[Concatenate[T, P], R]) -> Callable[Concatenate[T, P], None]:
     """Print some useful info."""
-    if not LOG_INFO:
-        return func
-
-    def inner(self: T, *args: P.args, **kwargs: P.kwargs) -> R:
+    def inner(self: T, *args: P.args, **kwargs: P.kwargs) -> None:
         result = func(self, *args, **kwargs)
+
+        if not LOG_INFO:
+            return
 
         LOGGER.debug('\n%s', func.__name__)
         LOGGER.debug('============================')
@@ -37,7 +37,5 @@ def log_info(func: Callable[Concatenate[T, P], R]) -> Callable[Concatenate[T, P]
 
         if result is not None:
             LOGGER.debug(result)
-
-        return result
 
     return inner
